@@ -4,8 +4,19 @@ import heroImage from '@/assets/hero-lab.jpg';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-medical-trust via-white to-accent">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+    <section 
+      id="home" 
+      className="min-h-screen bg-gradient-to-br from-medical-trust via-white to-accent relative overflow-hidden"
+      style={{
+        backgroundImage: `url('/lovable-uploads/a9a07be7-29a4-4b4e-8c22-e58a87d7d557.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-medical-trust/80 via-white/90 to-accent/80"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-8 animate-fade-in">
