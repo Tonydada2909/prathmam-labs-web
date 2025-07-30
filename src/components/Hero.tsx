@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Shield, Clock, Award, CheckCircle } from 'lucide-react';
-import heroImage from '@/assets/hero-lab.jpg';
+import dnaHelixBg from '@/assets/dna-helix-bg.jpg';
 
 const Hero = () => {
   return (
@@ -8,7 +8,7 @@ const Hero = () => {
       id="home" 
       className="min-h-screen bg-gradient-to-br from-medical-trust via-white to-accent relative overflow-hidden"
       style={{
-        backgroundImage: `url('/lovable-uploads/a9a07be7-29a4-4b4e-8c22-e58a87d7d557.png')`,
+        backgroundImage: `url(${dnaHelixBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
