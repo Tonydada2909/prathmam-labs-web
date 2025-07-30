@@ -84,8 +84,8 @@ const Hero = () => {
           <div className="relative animate-slide-up">
             <div className="relative">
               <img
-                src={heroImage}
-                alt="Prathmam Medicare Labs - Modern Diagnostic Laboratory"
+                src="/lovable-uploads/240163de-4a3f-453d-86d1-9d29c73007ce.png"
+                alt="Prathmam Medicare Labs - Serving Families with Care"
                 className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl"></div>
