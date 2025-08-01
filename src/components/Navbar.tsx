@@ -41,7 +41,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="hidden md:block text-primary font-medium">
-              ISO Certified Lab | NABL Accredited
+              ISO Certified Lab | Trusted Healthcare
             </div>
           </div>
         </div>

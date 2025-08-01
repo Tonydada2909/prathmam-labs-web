@@ -29,7 +29,7 @@ const Hero = () => {
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Advanced diagnostic services with accurate results you can trust. 
-                NABL accredited laboratory serving Karauli with cutting-edge technology.
+                ISO certified laboratory serving Karauli with cutting-edge technology.
               </p>
             </div>
 
@@ -37,7 +37,7 @@ const Hero = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="flex flex-col items-center p-4 bg-white/50 rounded-lg">
                 <Shield className="h-8 w-8 text-primary mb-2" />
-                <span className="text-sm font-medium text-center">NABL Certified</span>
+                <span className="text-sm font-medium text-center">ISO Certified</span>
               </div>
               <div className="flex flex-col items-center p-4 bg-white/50 rounded-lg">
                 <Clock className="h-8 w-8 text-primary mb-2" />
