@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Phone, MapPin } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, MapPin, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const { user, isAdmin, signOut } = useAuth();
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -90,7 +93,28 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-4">
+            {user ? (
+              <>
+                {isAdmin && (
+                  <Link to="/admin">
+                    <Button variant="outline" size="sm">
+                      Admin Dashboard
+                    </Button>
+                  </Link>
+                )}
+                <Button variant="outline" size="sm" onClick={signOut}>
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <Link to="/auth">
+                <Button variant="outline" size="sm">
+                  <User className="w-4 h-4 mr-2" />
+                  Login
+                </Button>
+              </Link>
+            )}
             <Button variant="cta" size="sm" asChild>
               <a href="tel:9403892093">Book Test</a>
             </Button>
@@ -137,7 +161,28 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <div className="px-3 pt-4">
+            <div className="px-3 pt-4 space-y-2">
+              {user ? (
+                <>
+                  {isAdmin && (
+                    <Link to="/admin" onClick={() => setIsOpen(false)}>
+                      <Button variant="outline" size="sm" className="w-full">
+                        Admin Dashboard
+                      </Button>
+                    </Link>
+                  )}
+                  <Button variant="outline" size="sm" className="w-full" onClick={() => { signOut(); setIsOpen(false); }}>
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Link to="/auth" onClick={() => setIsOpen(false)}>
+                  <Button variant="outline" size="sm" className="w-full">
+                    <User className="w-4 h-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+              )}
               <Button variant="cta" className="w-full" asChild>
                 <a href="tel:9403892093">Book Test</a>
               </Button>
