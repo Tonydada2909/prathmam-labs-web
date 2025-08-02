@@ -47,6 +47,7 @@ const About = () => {
             <CardContent className="p-8">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-foreground mb-2">Message from Our Founder</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">संस्थापक का संदेश</h3>
               </div>
               <div className="flex flex-col lg:flex-row items-center gap-8">
                 <div className="flex-shrink-0">
@@ -56,14 +57,23 @@ const About = () => {
                     className="w-32 h-32 rounded-full object-cover shadow-lg"
                   />
                 </div>
-                <div className="flex-1 text-center lg:text-left">
-                  <blockquote className="text-lg text-muted-foreground leading-relaxed italic mb-4">
+                <div className="flex-1 text-center lg:text-left space-y-6">
+                  <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
                     "At Prathmam Medicare Labs, our mission is deeply rooted in care, quality, and community. 
                     As a woman founder and a mother, I understand the importance of trust in healthcare. 
                     We are committed to providing accurate, affordable, and timely diagnostic services to every family—especially in underserved regions like ours. 
                     Our vision is to build a lab that feels like your partner in health, where compassion meets science. 
                     Our values are integrity, accessibility, and a relentless pursuit of excellence."
                   </blockquote>
+                  
+                  <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
+                    "प्रथमम् मेडिकेयर लैब्स में, हमारा मिशन देखभाल, गुणवत्ता और समुदाय में गहराई से निहित है। 
+                    एक महिला संस्थापक और माता के रूप में, मैं स्वास्थ्य सेवा में विश्वास के महत्व को समझती हूं। 
+                    हम हर परिवार को सटीक, किफायती और समय पर निदान सेवाएं प्रदान करने के लिए प्रतिबद्ध हैं—विशेष रूप से हमारे जैसे वंचित क्षेत्रों में। 
+                    हमारा दृष्टिकोण एक ऐसी प्रयोगशाला बनाना है जो आपके स्वास्थ्य में साझेदार की तरह महसूस हो, जहां करुणा विज्ञान से मिलती है। 
+                    हमारे मूल्य अखंडता, पहुंच और उत्कृष्टता की अथक खोज हैं।"
+                  </blockquote>
+                  
                   <div className="text-right">
                     <p className="font-semibold text-foreground">— Smt. Pooja Bansal</p>
                     <p className="text-primary">Founder & Director</p>
@@ -74,9 +84,9 @@ const About = () => {
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="mb-20">
           {/* Content */}
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-4xl mx-auto text-center">
             <h3 className="text-3xl font-bold text-foreground">
               Leading Healthcare Innovation in Rajasthan
             </h3>
@@ -93,38 +103,18 @@ const About = () => {
             </p>
             
             {/* Achievements */}
-            <div className="grid grid-cols-2 gap-4 pt-6">
-              <div className="text-center p-4 bg-accent rounded-lg">
-                <div className="text-2xl font-bold text-primary">NABL</div>
-                <div className="text-sm text-muted-foreground">Accredited</div>
-              </div>
+            <div className="grid grid-cols-2 gap-4 pt-6 max-w-md mx-auto">
               <div className="text-center p-4 bg-accent rounded-lg">
                 <div className="text-2xl font-bold text-primary">ISO</div>
                 <div className="text-sm text-muted-foreground">Certified</div>
               </div>
+              <div className="text-center p-4 bg-accent rounded-lg">
+                <div className="text-2xl font-bold text-primary">Quality</div>
+                <div className="text-sm text-muted-foreground">Assured</div>
+              </div>
             </div>
           </div>
 
-          {/* Team */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Our Leadership</h3>
-            {team.map((member, index) => <Card key={index} className="border-none shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="h-16 w-16 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-xl">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-semibold text-foreground mb-1">
-                        {member.name}
-                      </h4>
-                      <p className="text-primary font-medium mb-2">{member.role}</p>
-                      
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>)}
-          </div>
         </div>
 
         {/* Values */}

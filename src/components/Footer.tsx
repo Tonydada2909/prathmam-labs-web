@@ -24,8 +24,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-foreground text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="relative bg-foreground text-white overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/6316a920-f0e2-4589-86a7-d31768797075.png" 
+          alt="Karauli City" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-foreground/80"></div>
+      </div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
@@ -90,9 +100,14 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary" />
-                <a href="tel:9403892093" className="text-gray-300 hover:text-primary transition-colors text-sm">
-                  +91 9403892093
-                </a>
+                <div className="text-gray-300 text-sm">
+                  <a href="tel:9403892093" className="hover:text-primary transition-colors block">
+                    +91 9403892093
+                  </a>
+                  <a href="tel:9799656357" className="hover:text-primary transition-colors block">
+                    +91 9799656357
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary" />

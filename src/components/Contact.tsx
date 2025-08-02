@@ -36,7 +36,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: '+91 9403892093',
+      details: '+91 9403892093\n+91 9799656357',
       link: 'tel:9403892093'
     },
     {
@@ -227,7 +227,7 @@ const Contact = () => {
                 </a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="https://wa.me/919403892093" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/919799656357" target="_blank" rel="noopener noreferrer">
                   WhatsApp Chat
                 </a>
               </Button>

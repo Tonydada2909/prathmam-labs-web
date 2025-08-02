@@ -33,7 +33,7 @@ const Navbar = () => {
             <div className="flex items-center gap-4 text-muted-foreground">
               <div className="flex items-center gap-1">
                 <Phone className="h-4 w-4" />
-                <span>9403892093</span>
+                <span>9403892093, 9799656357</span>
               </div>
               <div className="flex items-center gap-1">
                 <MapPin className="h-4 w-4" />
@@ -49,11 +49,18 @@ const Navbar = () => {
         {/* Main navbar */}
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                Prathmam Medicare Labs
-              </h1>
-              <p className="text-xs text-muted-foreground">Accurate • Reliable • Trusted</p>
+            <div className="flex-shrink-0 flex items-center gap-3">
+              <img 
+                src="/lovable-uploads/a6a52f9a-8cf2-4b94-87ca-841de2fda975.png" 
+                alt="Prathmam Medicare Labs Logo" 
+                className="h-12 w-12"
+              />
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                  Prathmam Medicare Labs
+                </h1>
+                <p className="text-xs text-muted-foreground">Accurate • Reliable • Trusted</p>
+              </div>
             </div>
           </div>
 
