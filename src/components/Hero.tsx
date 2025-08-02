@@ -1,33 +1,32 @@
 import { Button } from '@/components/ui/button';
 import { Shield, Clock, Award, CheckCircle } from 'lucide-react';
-import dnaHelixBg from '@/assets/dna-helix-bg.jpg';
 
 const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen bg-gradient-to-br from-medical-trust via-white to-accent relative overflow-hidden"
+      className="min-h-screen relative overflow-hidden"
       style={{
-        backgroundImage: `url(${dnaHelixBg})`,
+        backgroundImage: `url(/lovable-uploads/9cca4691-daca-4cb2-9beb-22f58ce4ebc9.png)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-medical-trust/80 via-white/90 to-accent/80"></div>
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/60"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col items-center justify-center min-h-screen text-center">
           {/* Content */}
           <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
-                Your Health is Our{' '}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  Priority
-                </span>
+            <div className="space-y-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                Pioneers in advanced medical and diagnostic services - Trusted by KARAULI
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                अत्यधिक मेडिकल एवं डायग्नोस्टिक सेवा में अग्रणी करौली की विश्वसनीय लैब
+              </h2>
+              <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-4xl mx-auto">
                 Advanced diagnostic services with accurate results you can trust. 
                 ISO certified laboratory serving Karauli with cutting-edge technology.
               </p>
@@ -64,43 +63,18 @@ const Hero = () => {
             </div>
 
             {/* Quick stats */}
-            <div className="flex flex-wrap gap-8 pt-8 border-t border-gray-200">
-              <div>
-                <div className="text-3xl font-bold text-primary">5000+</div>
-                <div className="text-sm text-muted-foreground">Happy Patients</div>
+            <div className="flex flex-wrap justify-center gap-8 pt-8 border-t border-white/20">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">5000+</div>
+                <div className="text-sm text-white/80">Happy Patients</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">200+</div>
-                <div className="text-sm text-muted-foreground">Tests Available</div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">200+</div>
+                <div className="text-sm text-white/80">Tests Available</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">99.9%</div>
-                <div className="text-sm text-muted-foreground">Accuracy Rate</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="relative animate-slide-up">
-            <div className="relative">
-              <img
-                src="/lovable-uploads/240163de-4a3f-453d-86d1-9d29c73007ce.png"
-                alt="Prathmam Medicare Labs - Serving Families with Care"
-                className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl"></div>
-            </div>
-            
-            {/* Floating card */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-card border">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 bg-primary rounded-full flex items-center justify-center">
-                  <CheckCircle className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-foreground">ISO 15189:2012</div>
-                  <div className="text-sm text-muted-foreground">Certified Laboratory</div>
-                </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">99.9%</div>
+                <div className="text-sm text-white/80">Accuracy Rate</div>
               </div>
             </div>
           </div>
