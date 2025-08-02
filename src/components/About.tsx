@@ -3,8 +3,9 @@ import { Card, CardContent } from '@/components/ui/card';
 const About = () => {
   const team = [{
     name: "Dr. Pooja Bansal",
-    role: "Lab Director",
-    description: "Leading pathologist with 15+ years of experience in diagnostic medicine."
+    role: "Founder & Director",
+    description: "Leading pathologist with 15+ years of experience in diagnostic medicine.",
+    image: "/lovable-uploads/8d40fa16-3275-4a02-8b1f-1bb5664353ba.png"
   }, {
     name: "Nipun Bansal",
     role: "Chief Executive Officer",
@@ -40,6 +41,39 @@ const About = () => {
           </p>
         </div>
 
+        {/* Founder's Message */}
+        <div className="mb-20">
+          <Card className="border-none shadow-medical bg-gradient-to-r from-primary/5 to-accent/5">
+            <CardContent className="p-8">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-foreground mb-2">Message from Our Founder</h3>
+              </div>
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                <div className="flex-shrink-0">
+                  <img 
+                    src="/lovable-uploads/8d40fa16-3275-4a02-8b1f-1bb5664353ba.png" 
+                    alt="Smt. Pooja Bansal, Founder & Director"
+                    className="w-32 h-32 rounded-full object-cover shadow-lg"
+                  />
+                </div>
+                <div className="flex-1 text-center lg:text-left">
+                  <blockquote className="text-lg text-muted-foreground leading-relaxed italic mb-4">
+                    "At Prathmam Medicare Labs, our mission is deeply rooted in care, quality, and community. 
+                    As a woman founder and a mother, I understand the importance of trust in healthcare. 
+                    We are committed to providing accurate, affordable, and timely diagnostic services to every family—especially in underserved regions like ours. 
+                    Our vision is to build a lab that feels like your partner in health, where compassion meets science. 
+                    Our values are integrity, accessibility, and a relentless pursuit of excellence."
+                  </blockquote>
+                  <div className="text-right">
+                    <p className="font-semibold text-foreground">— Smt. Pooja Bansal</p>
+                    <p className="text-primary">Founder & Director</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           {/* Content */}
           <div className="space-y-6">
@@ -53,7 +87,7 @@ const About = () => {
               providers and patients can rely on.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Our NABL-accredited laboratory follows international quality standards, 
+              Our ISO-certified laboratory follows international quality standards, 
               ensuring that every test meets the highest benchmarks of accuracy and reliability. 
               We serve both individual patients and healthcare institutions across the region.
             </p>
