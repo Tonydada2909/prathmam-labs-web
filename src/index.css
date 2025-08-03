@@ -115,3 +115,28 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* Hover effects for interactive elements */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-medical;
+  }
+  
+  /* Section spacing improvements */
+  .section-spacing {
+    @apply py-20;
+  }
+  
+  .section-spacing-sm {
+    @apply py-16;
+  }
+  
+  /* Consistent CTA button styles */
+  .cta-button {
+    @apply bg-primary hover:bg-primary-glow text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-medical hover:-translate-y-0.5;
+  }
+}

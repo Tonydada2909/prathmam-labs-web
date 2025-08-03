@@ -55,7 +55,7 @@ const DoctorsZone = () => {
   ];
 
   return (
-    <section id="doctors" className="py-20 bg-gradient-to-br from-medical-blue-light to-white">
+    <section id="doctors" className="section-spacing bg-gradient-to-br from-medical-blue-light to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -75,7 +75,7 @@ const DoctorsZone = () => {
             </h3>
             <div className="space-y-4">
               {resources.map((resource, index) => (
-                <Card key={index} className="border-none shadow-card hover:shadow-medical transition-shadow">
+                <Card key={index} className="border-none shadow-card hover-lift hover-glow bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
@@ -137,7 +137,7 @@ const DoctorsZone = () => {
             </h3>
             <div className="grid gap-4">
               {benefits.map((benefit, index) => (
-                <Card key={index} className="border-none shadow-card">
+                <Card key={index} className="border-none shadow-card hover-lift hover-glow bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">

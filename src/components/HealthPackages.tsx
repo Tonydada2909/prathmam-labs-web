@@ -121,7 +121,7 @@ const HealthPackages = () => {
   ];
 
   return (
-    <section id="packages" className="py-20 bg-white">
+    <section id="packages" className="section-spacing bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -138,7 +138,7 @@ const HealthPackages = () => {
           {packages.map((pkg) => (
             <Card 
               key={pkg.id} 
-              className={`relative border-none shadow-card hover:shadow-medical transition-all duration-300 ${
+              className={`relative border-none shadow-card hover-lift hover-glow bg-white ${
                 pkg.popular ? 'ring-2 ring-primary' : ''
               }`}
             >

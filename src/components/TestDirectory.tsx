@@ -110,7 +110,7 @@ const TestDirectory = () => {
   });
 
   return (
-    <section id="tests" className="py-20 bg-accent/30">
+    <section id="tests" className="section-spacing bg-accent/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -156,7 +156,7 @@ const TestDirectory = () => {
         {/* Tests Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTests.map((test) => (
-            <Card key={test.id} className="border-none shadow-card hover:shadow-medical transition-all duration-300">
+            <Card key={test.id} className="border-none shadow-card hover-lift hover-glow bg-white">
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg text-foreground flex items-start justify-between">
                   <span>{test.name}</span>

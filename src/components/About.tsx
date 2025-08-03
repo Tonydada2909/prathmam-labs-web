@@ -28,7 +28,7 @@ const About = () => {
     title: "Trust",
     description: "Building lasting relationships through reliability and transparency."
   }];
-  return <section id="about" className="py-20 bg-white">
+  return <section id="about" className="section-spacing bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -42,8 +42,8 @@ const About = () => {
         </div>
 
         {/* Founder's Message */}
-        <div className="mb-20">
-          <Card className="border-none shadow-medical bg-gradient-to-r from-primary/5 to-accent/5">
+        <div className="mb-20 animate-fade-up">
+          <Card className="border-none shadow-medical bg-gradient-to-r from-primary/5 to-accent/5 hover-lift hover-glow">
             <CardContent className="p-8">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-foreground mb-2">Message from Our Founder</h3>
@@ -123,7 +123,7 @@ const About = () => {
             Our Core Values
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => <Card key={index} className="text-center border-none shadow-card hover:shadow-medical transition-shadow">
+            {values.map((value, index) => <Card key={index} className="text-center border-none shadow-card hover-lift hover-glow">
                 <CardContent className="p-8">
                   <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <value.icon className="h-8 w-8 text-primary" />

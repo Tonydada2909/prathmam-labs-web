@@ -30,9 +30,9 @@ const Footer = () => {
         <img 
           src="/lovable-uploads/6316a920-f0e2-4589-86a7-d31768797075.png" 
           alt="Karauli City" 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-foreground/80"></div>
+        <div className="absolute inset-0 bg-foreground/70"></div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -87,7 +87,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Info & Timings */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <div className="space-y-3">
@@ -95,11 +95,12 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300 text-sm">
                   Prathmam Medicare Labs<br />
-                  Karauli, Rajasthan, India
+                  Near Government Hospital<br />
+                  Karauli, Rajasthan 322241, India
                 </span>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary" />
+              <div className="flex items-start gap-3">
+                <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                 <div className="text-gray-300 text-sm">
                   <a href="tel:9403892093" className="hover:text-primary transition-colors block">
                     +91 9403892093
@@ -125,6 +126,13 @@ const Footer = () => {
                 >
                   @prathmam_labs
                 </a>
+              </div>
+              <div className="border-t border-gray-600 pt-3 mt-4">
+                <h5 className="text-white font-semibold mb-2">Lab Timings</h5>
+                <p className="text-gray-300 text-sm">
+                  Monday - Saturday: 7:00 AM - 8:00 PM<br />
+                  Sunday: 8:00 AM - 6:00 PM
+                </p>
               </div>
             </div>
           </div>

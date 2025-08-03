@@ -17,6 +17,7 @@ const Navbar = () => {
       dropdown: [
         { name: 'Test Directory', href: '#tests' },
         { name: 'Health Packages', href: '#packages' },
+        { name: 'Downloads', href: '#downloads' },
       ]
     },
     { name: 'About Us', href: '#about' },

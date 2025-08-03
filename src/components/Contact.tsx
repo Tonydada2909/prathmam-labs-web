@@ -60,7 +60,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-accent/30">
+    <section id="contact" className="section-spacing bg-accent/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -78,7 +78,7 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="border-none shadow-card hover:shadow-medical transition-shadow">
+                <Card key={index} className="border-none shadow-card hover-lift hover-glow bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -104,7 +104,7 @@ const Contact = () => {
             </div>
 
             {/* Social Media */}
-            <Card className="border-none shadow-card">
+            <Card className="border-none shadow-card hover-lift hover-glow bg-white">
               <CardContent className="p-6">
                 <h4 className="font-semibold text-foreground mb-4">Follow Us</h4>
                 <div className="flex gap-4">
@@ -120,7 +120,7 @@ const Contact = () => {
 
             {/* Map */}
             <div className="mt-8">
-              <Card className="border-none shadow-card overflow-hidden">
+              <Card className="border-none shadow-card hover-lift hover-glow bg-white overflow-hidden">
                 <CardHeader>
                   <CardTitle>Our Location</CardTitle>
                 </CardHeader>
@@ -144,7 +144,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <Card className="border-none shadow-card">
+            <Card className="border-none shadow-card hover-lift hover-glow bg-white">
               <CardHeader>
                 <CardTitle className="text-2xl">Send us a Message</CardTitle>
               </CardHeader>
