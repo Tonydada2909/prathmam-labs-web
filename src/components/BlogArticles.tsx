@@ -1,90 +1,134 @@
-import { Calendar, ArrowRight, Heart, Droplets } from 'lucide-react';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Heart, Brain, Shield, Calendar, Clock, Globe } from 'lucide-react';
+import { useState } from 'react';
 
 const BlogArticles = () => {
+  const [language, setLanguage] = useState<'en' | 'hi'>('en');
+
   const articles = [
     {
-      title: "Why Regular Health Checkups Matter",
-      titleHindi: "नियमित स्वास्थ्य जांच क्यों जरूरी है",
-      description: "Learn about the importance of preventive healthcare and how regular checkups can help detect health issues early.",
-      descriptionHindi: "निवारक स्वास्थ्य सेवा के महत्व के बारे में जानें और कैसे नियमित जांच से स्वास्थ्य समस्याओं का जल्दी पता लगाया जा सकता है।",
+      id: 1,
       icon: Heart,
-      date: "December 15, 2024",
-      readTime: "5 min read"
+      date: 'December 15, 2024',
+      readTime: '5 min read',
+      title: {
+        en: 'Why Regular Health Checkups Matter',
+        hi: 'नियमित स्वास्थ्य जांच क्यों जरूरी है'
+      },
+      description: {
+        en: 'Regular health checkups help detect diseases early and maintain optimal health. Learn about the importance of preventive healthcare.',
+        hi: 'नियमित स्वास्थ्य जांच से बीमारियों का जल्दी पता चलता है और स्वास्थ्य अच्छा रहता है। निवारक स्वास्थ्य सेवा के महत्व के बारे में जानें।'
+      }
     },
     {
-      title: "Sugar Test FAQs",
-      titleHindi: "शुगर टेस्ट से जुड़े सामान्य प्रश्न",
-      description: "Common questions about diabetes testing, preparation guidelines, and understanding your results.",
-      descriptionHindi: "मधुमेह परीक्षण, तैयारी के दिशानिर्देश और अपने परिणामों को समझने के बारे में सामान्य प्रश्न।",
-      icon: Droplets,
-      date: "December 10, 2024",
-      readTime: "3 min read"
+      id: 2,
+      icon: Brain,
+      date: 'December 10, 2024',
+      readTime: '4 min read',
+      title: {
+        en: 'Sugar Test FAQs - Everything You Need to Know',
+        hi: 'शुगर टेस्ट के बारे में अक्सर पूछे जाने वाले सवाल'
+      },
+      description: {
+        en: 'Common questions about diabetes testing, fasting glucose levels, and HbA1c tests. Get accurate information from our experts.',
+        hi: 'डायबिटीज टेस्ट, फास्टिंग ग्लूकोज़ लेवल और HbA1c टेस्ट के बारे में आम सवाल। हमारे विशेषज्ञों से सटीक जानकारी प्राप्त करें।'
+      }
     }
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="blog" className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Health & Wellness Blog
-          </h2>
-          <h3 className="text-2xl font-semibold text-primary mb-4">
-            स्वास्थ्य और कल्याण ब्लॉग
-          </h3>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Stay informed with our latest health tips and medical insights
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {articles.map((article, index) => (
-            <Card 
-              key={index} 
-              className="border-none shadow-card hover:shadow-medical transition-all duration-300 hover:-translate-y-1 bg-white group cursor-pointer"
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Health & Wellness Blog</h2>
+          <p className="text-lg text-gray-600 mb-6">Stay informed with latest health insights and tips</p>
+          
+          {/* Language Toggle */}
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <Globe className="h-4 w-4 text-gray-500" />
+            <Button
+              variant={language === 'en' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setLanguage('en')}
+              className="text-xs"
             >
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <article.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      {article.date}
-                    </div>
-                    <span>{article.readTime}</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                  {article.title}
-                </h3>
-                <h4 className="text-lg font-semibold text-primary">
-                  {article.titleHindi}
-                </h4>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">
-                  {article.description}
-                </p>
-                <p className="text-muted-foreground/80 text-sm leading-relaxed">
-                  {article.descriptionHindi}
-                </p>
-                <Button variant="ghost" className="group-hover:text-primary p-0 h-auto font-medium">
-                  Read More
-                  <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+              English
+            </Button>
+            <Button
+              variant={language === 'hi' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setLanguage('hi')}
+              className="text-xs"
+            >
+              हिंदी
+            </Button>
+          </div>
         </div>
 
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {articles.map((article) => {
+            const Icon = article.icon;
+            return (
+              <Card key={article.id} className="hover-lift group cursor-pointer border-0 shadow-md hover:shadow-xl transition-all duration-300">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-4 w-4" />
+                        {article.date}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-4 w-4" />
+                        {article.readTime}
+                      </div>
+                    </div>
+                  </div>
+                  <CardTitle className="text-xl leading-tight group-hover:text-primary transition-colors">
+                    {article.title[language]}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {article.description[language]}
+                  </p>
+                  <Button variant="outline" size="sm" className="group-hover:border-primary group-hover:text-primary transition-colors">
+                    Read More
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        <div className="text-center">
+          <Button variant="cta" size="lg">
             View All Articles
           </Button>
+        </div>
+
+        {/* Guide for adding blog posts */}
+        <div className="mt-16 p-6 bg-blue-50 rounded-lg border border-blue-200">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">How to Add New Blog Posts (Admin Guide)</h3>
+          <div className="text-left space-y-3 text-gray-700">
+            <p><strong>To add blog posts in the future:</strong></p>
+            <ol className="list-decimal list-inside space-y-2">
+              <li>Access the Admin Dashboard from the navbar</li>
+              <li>Navigate to "Blog Management" section</li>
+              <li>Click "Add New Article"</li>
+              <li>Fill in title (both English and Hindi)</li>
+              <li>Add description (both languages)</li>
+              <li>Select appropriate icon and category</li>
+              <li>Set publication date and reading time</li>
+              <li>Preview and publish</li>
+            </ol>
+            <p className="text-sm text-blue-600 mt-4">
+              <strong>Note:</strong> This feature requires database setup for dynamic blog management. Contact your developer to implement the full blog management system.
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -1,192 +1,133 @@
-import { CheckCircle, Phone, Star } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { CheckCircle, Clock, Users, Phone } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+
+interface Package {
+  id: string;
+  name: string;
+  price: number;
+  original_price?: number;
+  ideal_for: string;
+  included_tests: string[];
+  report_time: string;
+  is_popular?: boolean;
+  is_active: boolean;
+}
 
 const HealthPackages = () => {
-  const packages = [
-    {
-      id: 1,
-      name: 'Basic Health Checkup',
-      price: '₹1,500',
-      originalPrice: '₹2,000',
-      popular: false,
-      tests: [
-        'Complete Blood Count (CBC)',
-        'Liver Function Test (LFT)',
-        'Kidney Function Test (KFT)', 
-        'Lipid Profile',
-        'Blood Sugar (Fasting)',
-        'Urine Routine & Microscopy'
-      ],
-      ideal: 'Adults 18-40 years',
-      reports: '6-8 hours'
-    },
-    {
-      id: 2,
-      name: 'Comprehensive Health Package',
-      price: '₹3,500',
-      originalPrice: '₹4,500',
-      popular: true,
-      tests: [
-        'Complete Blood Count (CBC)',
-        'Liver Function Test (LFT)',
-        'Kidney Function Test (KFT)',
-        'Lipid Profile Complete',
-        'Thyroid Profile (T3, T4, TSH)',
-        'HbA1c',
-        'Vitamin D3',
-        'Vitamin B12',
-        'Urine Routine & Microscopy',
-        'ECG'
-      ],
-      ideal: 'Adults 40+ years',
-      reports: '8-12 hours'
-    },
-    {
-      id: 3,
-      name: 'Diabetes Monitoring Package',
-      price: '₹1,200',
-      originalPrice: '₹1,600',
-      popular: false,
-      tests: [
-        'HbA1c (Glycated Hemoglobin)',
-        'Fasting Blood Sugar',
-        'Post Meal Blood Sugar',
-        'Kidney Function Test',
-        'Lipid Profile',
-        'Urine Microalbumin'
-      ],
-      ideal: 'Diabetic patients',
-      reports: '4-6 hours'
-    },
-    {
-      id: 4,
-      name: 'Cardiac Risk Assessment',
-      price: '₹2,200',
-      originalPrice: '₹2,800',
-      popular: false,
-      tests: [
-        'Lipid Profile Complete',
-        'CRP (C-Reactive Protein)',
-        'Troponin-I',
-        'D-Dimer',
-        'Homocysteine',
-        'ECG',
-        'Blood Pressure Check'
-      ],
-      ideal: 'Heart health screening',
-      reports: '6-8 hours'
-    },
-    {
-      id: 5,
-      name: 'Women\'s Health Package',
-      price: '₹2,800',
-      originalPrice: '₹3,500',
-      popular: false,
-      tests: [
-        'Complete Blood Count',
-        'Thyroid Profile',
-        'Iron Studies',
-        'Vitamin D3',
-        'Calcium',
-        'Pap Smear',
-        'Mammography',
-        'Bone Density Scan'
-      ],
-      ideal: 'Women 25+ years',
-      reports: '12-24 hours'
-    },
-    {
-      id: 6,
-      name: 'Senior Citizen Package',
-      price: '₹4,500',
-      originalPrice: '₹6,000',
-      popular: false,
-      tests: [
-        'Complete Blood Count',
-        'Comprehensive Metabolic Panel',
-        'Lipid Profile Complete',
-        'Thyroid Function Test',
-        'Vitamin D3 & B12',
-        'PSA (for men)',
-        'Bone Density Scan',
-        'ECG',
-        'Chest X-Ray',
-        'Eye Examination'
-      ],
-      ideal: 'Adults 60+ years',
-      reports: '24 hours'
+  const [packages, setPackages] = useState<Package[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch packages from Supabase
+  const fetchPackages = async () => {
+    const { data, error } = await supabase
+      .from('packages')
+      .select('*')
+      .eq('is_active', true)
+      .order('price');
+    
+    if (error) {
+      console.error('Error fetching packages:', error);
+      return;
     }
-  ];
+    
+    setPackages(data || []);
+  };
+
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true);
+      await fetchPackages();
+      setLoading(false);
+    };
+
+    loadData();
+
+    // Set up real-time subscription
+    const packagesChannel = supabase
+      .channel('packages-changes')
+      .on('postgres_changes', 
+        { event: '*', schema: 'public', table: 'packages' }, 
+        (payload) => {
+          fetchPackages();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(packagesChannel);
+    };
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="packages" className="py-16 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">Loading packages...</div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section id="packages" className="section-spacing bg-white">
+    <section id="packages" className="py-16 bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Health <span className="text-primary">Packages</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive health checkup packages designed for different age groups and health needs
-          </p>
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Health Packages</h2>
+          <p className="text-lg text-gray-600">Comprehensive health checkup packages designed for your needs</p>
         </div>
 
-        {/* Packages Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {packages.map((pkg) => (
-            <Card 
-              key={pkg.id} 
-              className={`relative border-none shadow-card hover-lift hover-glow bg-white ${
-                pkg.popular ? 'ring-2 ring-primary' : ''
-              }`}
-            >
-              {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-primary text-white px-4 py-1 flex items-center gap-1">
-                    <Star className="h-3 w-3" />
-                    Most Popular
-                  </Badge>
-                </div>
+            <Card key={pkg.id} className={`hover-lift relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 ${pkg.is_popular ? 'ring-2 ring-primary' : ''}`}>
+              {pkg.is_popular && (
+                <Badge className="absolute top-4 right-4 bg-primary text-white">
+                  Most Popular
+                </Badge>
               )}
               
               <CardHeader className="text-center pb-4">
-                <CardTitle className="text-xl font-bold text-foreground mb-2">
-                  {pkg.name}
-                </CardTitle>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-3xl font-bold text-primary">{pkg.price}</span>
-                    <span className="text-lg text-muted-foreground line-through">{pkg.originalPrice}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{pkg.ideal}</p>
-                  <p className="text-sm text-muted-foreground">Reports in: {pkg.reports}</p>
+                <CardTitle className="text-xl font-bold mb-2">{pkg.name}</CardTitle>
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-3xl font-bold text-primary">₹{pkg.price}</span>
+                  {pkg.original_price && pkg.original_price > pkg.price && (
+                    <span className="text-lg text-gray-500 line-through">₹{pkg.original_price}</span>
+                  )}
+                </div>
+                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <Users className="h-4 w-4" />
+                  <span>{pkg.ideal_for}</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <Clock className="h-4 w-4" />
+                  <span>{pkg.report_time}</span>
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-6">
-                {/* Tests included */}
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Tests Included:</h4>
-                  <ul className="space-y-2">
-                    {pkg.tests.map((test, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm">
-                        <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{test}</span>
-                      </li>
+              <CardContent>
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3 text-gray-900">Includes:</h4>
+                  <div className="space-y-2">
+                    {pkg.included_tests.slice(0, 5).map((test, index) => (
+                      <div key={index} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">{test}</span>
+                      </div>
                     ))}
-                  </ul>
+                    {pkg.included_tests.length > 5 && (
+                      <div className="text-sm text-gray-500 font-medium">
+                        +{pkg.included_tests.length - 5} more tests
+                      </div>
+                    )}
+                  </div>
                 </div>
 
-                {/* Book button */}
-                <Button 
-                  variant={pkg.popular ? "cta" : "medical"} 
-                  className="w-full" 
-                  asChild
-                >
-                  <a href="tel:9403892093">
-                    <Phone className="h-4 w-4 mr-2" />
+                <Button className="w-full" variant="cta" asChild>
+                  <a href="https://wa.me/919799656357?text=Hello! I would like to book a health package." target="_blank" rel="noopener noreferrer">
+                    <Phone className="mr-2 h-4 w-4" />
                     Book Package
                   </a>
                 </Button>
@@ -195,18 +136,35 @@ const HealthPackages = () => {
           ))}
         </div>
 
-        {/* Additional info */}
-        <div className="mt-12 text-center">
-          <div className="bg-accent/50 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-foreground mb-2">
-              Need a Custom Package?
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              Contact us to create a personalized health checkup package based on your specific requirements
+        {/* Custom Package Section */}
+        <div className="bg-white rounded-lg shadow-md p-8 text-center animate-fade-in">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Need a Custom Package?</h3>
+          <p className="text-gray-600 mb-6">
+            Can't find what you're looking for? We can create a customized health package based on your specific requirements.
+          </p>
+          <Button variant="outline" size="lg" asChild>
+            <a href="https://wa.me/919799656357?text=Hello! I would like to inquire about custom health packages." target="_blank" rel="noopener noreferrer">
+              Contact Us for Custom Package
+            </a>
+          </Button>
+        </div>
+
+        {/* Admin Guide */}
+        <div className="mt-16 p-6 bg-blue-50 rounded-lg border border-blue-200">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Package Management (Real-time Sync Enabled)</h3>
+          <div className="text-left space-y-3 text-gray-700">
+            <p><strong>✅ Your health packages are now connected to Supabase with real-time updates!</strong></p>
+            <p><strong>To manage packages:</strong></p>
+            <ol className="list-decimal list-inside space-y-2">
+              <li>Login as admin and go to Admin Dashboard</li>
+              <li>Navigate to "Packages Management"</li>
+              <li>Add, edit, or remove packages - changes appear instantly</li>
+              <li>Set pricing, included tests, and target demographics</li>
+              <li>Mark popular packages and set availability</li>
+            </ol>
+            <p className="text-green-600 font-medium">
+              Real-time sync is active - any changes you make will be reflected immediately on the website!
             </p>
-            <Button variant="outline" asChild>
-              <a href="tel:9403892093">Contact Us</a>
-            </Button>
           </div>
         </div>
       </div>

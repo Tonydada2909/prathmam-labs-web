@@ -12,6 +12,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import WelcomePopup from '@/components/WelcomePopup';
+import ReportDownloadGuide from '@/components/ReportDownloadGuide';
 
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
       <Downloads />
       <Testimonials />
       <BlogArticles />
+      <ReportDownloadGuide />
       <DoctorsZone />
       <Contact />
       <Footer />

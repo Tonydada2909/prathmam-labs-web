@@ -21,46 +21,49 @@ const Navbar = () => {
       ]
     },
     { name: 'About Us', href: '#about' },
+    { name: 'Downloads', href: '#downloads' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Doctors Zone', href: '#doctors' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav className="bg-white/95 backdrop-blur-md shadow-card sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 shadow-xl sticky top-0 z-50 animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top info bar */}
-        <div className="border-b border-gray-100 py-2 text-sm">
+        <div className="border-b border-blue-500 py-2 text-sm bg-gradient-to-r from-primary to-blue-600 text-white">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4 text-muted-foreground">
-              <div className="flex items-center gap-1">
+            <div className="flex items-center gap-4 animate-slide-in-left">
+              <div className="flex items-center gap-1 hover:text-yellow-200 transition-colors">
                 <Phone className="h-4 w-4" />
                 <span>9403892093, 9799656357</span>
               </div>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 hover:text-yellow-200 transition-colors">
                 <MapPin className="h-4 w-4" />
                 <span>Karauli, Rajasthan</span>
               </div>
             </div>
-            <div className="hidden md:block text-primary font-medium">
-              ISO Certified Lab | Trusted Healthcare
+            <div className="hidden md:block font-medium hover:text-yellow-200 transition-colors animate-slide-in-right">
+              Advanced Diagnostic Services | Trusted Healthcare
             </div>
           </div>
         </div>
 
         {/* Main navbar */}
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-4 bg-white/95 backdrop-blur-sm">
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center gap-3">
+            <div className="flex-shrink-0 flex items-center gap-3 group animate-scale-in">
               <img 
-                src="/lovable-uploads/a6a52f9a-8cf2-4b94-87ca-841de2fda975.png" 
+                src="/lovable-uploads/287bfd2f-2f1f-43be-8391-995acac3fa03.png" 
                 alt="Prathmam Medicare Labs Logo" 
-                className="h-12 w-12"
+                className="h-12 w-12 group-hover:scale-110 transition-transform duration-300"
               />
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                  Prathmam Medicare Labs
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-blue-800 transition-all duration-300">
+                  Prathmam Labs
                 </h1>
-                <p className="text-xs text-muted-foreground">Accurate • Reliable • Trusted</p>
+                <p className="text-xs text-gray-600 group-hover:text-blue-600 transition-colors">Accurate • Reliable • Trusted</p>
               </div>
             </div>
           </div>
@@ -68,28 +71,29 @@ const Navbar = () => {
           {/* Desktop menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <div
                   key={item.name}
-                  className="relative"
+                  className="relative group"
+                  style={{animationDelay: `${index * 100}ms`}}
                   onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <a
                     href={item.href}
-                    className="flex items-center text-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                    className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-blue-50 rounded-md transform hover:scale-105 story-link"
                   >
                     {item.name}
                     {item.dropdown && <ChevronDown className="ml-1 h-4 w-4" />}
                   </a>
                   
                   {item.dropdown && activeDropdown === item.name && (
-                    <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border z-50">
+                    <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-xl border border-blue-100 z-50 animate-scale-in">
                       {item.dropdown.map((dropItem) => (
                         <a
                           key={dropItem.name}
                           href={dropItem.href}
-                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground first:rounded-t-lg last:rounded-b-lg"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 hover:pl-6 first:rounded-t-lg last:rounded-b-lg"
                         >
                           {dropItem.name}
                         </a>
@@ -124,7 +128,7 @@ const Navbar = () => {
               </Link>
             )}
             <Button variant="cta" size="sm" asChild>
-              <a href="tel:9403892093">Book Test</a>
+              <a href="https://wa.me/919799656357?text=Hello! I would like to book a test." target="_blank" rel="noopener noreferrer">Book Test</a>
             </Button>
           </div>
 
@@ -192,7 +196,7 @@ const Navbar = () => {
                 </Link>
               )}
               <Button variant="cta" className="w-full" asChild>
-                <a href="tel:9403892093">Book Test</a>
+                <a href="https://wa.me/919799656357?text=Hello! I would like to book a test." target="_blank" rel="noopener noreferrer">Book Test</a>
               </Button>
             </div>
           </div>

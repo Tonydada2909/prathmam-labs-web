@@ -23,9 +23,9 @@ const Hero = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Pioneers in advanced medical and diagnostic services - Trusted by KARAULI
               </h1>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                अत्यधिक मेडिकल एवं डायग्नोस्टिक सेवा में अग्रणी करौली की विश्वसनीय लैब
-              </h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                अत्याधुनिक मेडिकल एवं डायग्नोस्टिक सेवा में अग्रणी करौली की विश्वसनीय लैब
+                </h2>
               <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-4xl mx-auto">
                 Advanced diagnostic services with accurate results you can trust. 
                 ISO certified laboratory serving Karauli with cutting-edge technology.
@@ -55,7 +55,7 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="cta" size="xl" asChild>
-                <a href="tel:9403892093">Book Test Now</a>
+                <a href="https://wa.me/919799656357?text=Hello! I would like to book a test." target="_blank" rel="noopener noreferrer">Book Test Now</a>
               </Button>
               <Button variant="outline" size="xl" asChild>
                 <a href="#tests">View All Tests</a>

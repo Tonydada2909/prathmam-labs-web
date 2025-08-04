@@ -43,9 +43,6 @@ const Downloads = () => {
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Downloads & Resources
           </h2>
-          <h3 className="text-2xl font-semibold text-primary mb-4">
-            डाउनलोड और संसाधन
-          </h3>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Access important documents, rate cards, and patient guidelines
           </p>
@@ -64,16 +61,10 @@ const Downloads = () => {
                 <CardTitle className="text-xl text-foreground">
                   {item.title}
                 </CardTitle>
-                <p className="text-lg font-medium text-primary">
-                  {item.titleHindi}
-                </p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground text-center">
                   {item.description}
-                </p>
-                <p className="text-muted-foreground text-center text-sm">
-                  {item.descriptionHindi}
                 </p>
                 <Button 
                   onClick={() => handleDownload(item.filename)}
