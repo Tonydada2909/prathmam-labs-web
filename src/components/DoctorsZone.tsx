@@ -15,8 +15,8 @@ const DoctorsZone = () => {
       title: 'Rate List',
       description: 'Complete test catalog with current pricing',
       icon: Download,
-      action: 'Download PDF',
-      file: '#'
+      action: 'Download Excel',
+      file: 'https://wfdcndrzdkfopwsqrnpb.supabase.co/storage/v1/object/public/downloadspatient//Rate%20corporate.xlsx'
     },
     {
       title: 'Test Directory',
