@@ -60,17 +60,19 @@ const Navbar = () => {
                 className="h-12 w-12 group-hover:scale-110 transition-transform duration-300"
               />
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-blue-800 transition-all duration-300">
-                  Prathmam Labs
-                </h1>
-                <p className="text-xs text-gray-600 group-hover:text-blue-600 transition-colors">Accurate • Reliable • Trusted</p>
+                <div>
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-blue-800 transition-all duration-300">
+                    Prathmam Medicare Labs
+                  </h1>
+                  <p className="text-xs text-gray-600 group-hover:text-blue-600 transition-colors">A unit of Prathmam Medicare LLP</p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Desktop menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-6">
               {navItems.map((item, index) => (
                 <div
                   key={item.name}
@@ -105,29 +107,27 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
-            {user ? (
-              <>
-                {isAdmin && (
-                  <Link to="/admin">
-                    <Button variant="outline" size="sm">
-                      Admin Dashboard
-                    </Button>
-                  </Link>
-                )}
-                <Button variant="outline" size="sm" onClick={signOut}>
-                  Sign Out
+          <div className="hidden md:flex items-center space-x-3">
+            {isAdmin && (
+              <Link to="/admin">
+                <Button variant="outline" size="sm" className="bg-gradient-to-r from-purple-500 to-purple-600 text-white border-purple-500 hover:from-purple-600 hover:to-purple-700">
+                  Admin
                 </Button>
-              </>
+              </Link>
+            )}
+            {user ? (
+              <Button variant="outline" size="sm" onClick={signOut} className="border-red-300 text-red-600 hover:bg-red-50">
+                Sign Out
+              </Button>
             ) : (
               <Link to="/auth">
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size="sm" className="border-blue-300 text-blue-600 hover:bg-blue-50">
                   <User className="w-4 h-4 mr-2" />
                   Login
                 </Button>
               </Link>
             )}
-            <Button variant="cta" size="sm" asChild>
+            <Button variant="cta" size="sm" asChild className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-md">
               <a href="https://wa.me/919799656357?text=Hello! I would like to book a test." target="_blank" rel="noopener noreferrer">Book Test</a>
             </Button>
           </div>
@@ -174,28 +174,26 @@ const Navbar = () => {
               </div>
             ))}
             <div className="px-3 pt-4 space-y-2">
-              {user ? (
-                <>
-                  {isAdmin && (
-                    <Link to="/admin" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" size="sm" className="w-full">
-                        Admin Dashboard
-                      </Button>
-                    </Link>
-                  )}
-                  <Button variant="outline" size="sm" className="w-full" onClick={() => { signOut(); setIsOpen(false); }}>
-                    Sign Out
+              {isAdmin && (
+                <Link to="/admin" onClick={() => setIsOpen(false)}>
+                  <Button variant="outline" size="sm" className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white">
+                    Admin
                   </Button>
-                </>
+                </Link>
+              )}
+              {user ? (
+                <Button variant="outline" size="sm" className="w-full border-red-300 text-red-600" onClick={() => { signOut(); setIsOpen(false); }}>
+                  Sign Out
+                </Button>
               ) : (
                 <Link to="/auth" onClick={() => setIsOpen(false)}>
-                  <Button variant="outline" size="sm" className="w-full">
+                  <Button variant="outline" size="sm" className="w-full border-blue-300 text-blue-600">
                     <User className="w-4 h-4 mr-2" />
                     Login
                   </Button>
                 </Link>
               )}
-              <Button variant="cta" className="w-full" asChild>
+              <Button variant="cta" className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white" asChild>
                 <a href="https://wa.me/919799656357?text=Hello! I would like to book a test." target="_blank" rel="noopener noreferrer">Book Test</a>
               </Button>
             </div>

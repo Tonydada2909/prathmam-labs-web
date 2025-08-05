@@ -1,5 +1,9 @@
 import { Users, Target, Award, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import accuracyIcon from '@/assets/accuracy-icon.jpg';
+import reliabilityIcon from '@/assets/reliability-icon.jpg';
+import innovationIcon from '@/assets/innovation-icon.jpg';
+import careIcon from '@/assets/care-icon.jpg';
 const About = () => {
   const team = [{
     name: "Dr. Pooja Bansal",
@@ -14,19 +18,23 @@ const About = () => {
   const values = [{
     icon: Target,
     title: "Accuracy",
-    description: "Precise results using state-of-the-art equipment and rigorous quality control."
+    description: "Precise results using state-of-the-art equipment and rigorous quality control.",
+    image: accuracyIcon
   }, {
     icon: Heart,
-    title: "Care",
-    description: "Patient-centered approach with compassionate service and support."
+    title: "Care", 
+    description: "Patient-centered approach with compassionate service and support.",
+    image: careIcon
   }, {
     icon: Award,
-    title: "Excellence",
-    description: "Continuous improvement and adherence to international standards."
+    title: "Innovation",
+    description: "Cutting-edge technology and adherence to international standards.",
+    image: innovationIcon
   }, {
     icon: Users,
-    title: "Trust",
-    description: "Building lasting relationships through reliability and transparency."
+    title: "Reliability",
+    description: "Building lasting relationships through dependable and transparent service.",
+    image: reliabilityIcon
   }];
   return <section id="about" className="section-spacing bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,15 +110,22 @@ const About = () => {
               We serve both individual patients and healthcare institutions across the region.
             </p>
             
-            {/* Achievements */}
-            <div className="grid grid-cols-2 gap-4 pt-6 max-w-md mx-auto">
-              <div className="text-center p-4 bg-accent rounded-lg">
-                <div className="text-2xl font-bold text-primary">ISO</div>
-                <div className="text-sm text-muted-foreground">Certified</div>
-              </div>
-              <div className="text-center p-4 bg-accent rounded-lg">
-                <div className="text-2xl font-bold text-primary">Quality</div>
-                <div className="text-sm text-muted-foreground">Assured</div>
+            {/* Certifications */}
+            <div className="pt-8">
+              <h4 className="text-xl font-semibold text-foreground mb-6">Our Certifications</h4>
+              <div className="flex justify-center items-center gap-8">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 mb-2">
+                    <span className="text-2xl font-bold text-red-600">ISO</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">ISO Certified</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 mb-2">
+                    <span className="text-lg font-bold text-blue-600">IAF</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">IAF Accredited</p>
+                </div>
               </div>
             </div>
           </div>
@@ -123,15 +138,22 @@ const About = () => {
             Our Core Values
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => <Card key={index} className="text-center border-none shadow-card hover-lift hover-glow">
-                <CardContent className="p-8">
-                  <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="h-8 w-8 text-primary" />
+            {values.map((value, index) => <Card key={index} className="text-center border-none shadow-card hover-lift hover-glow bg-white overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    <img 
+                      src={value.image} 
+                      alt={value.title}
+                      className="w-full h-32 object-cover rounded-lg mb-4"
+                    />
+                    <div className="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto -mt-8 relative z-10 bg-white shadow-md">
+                      <value.icon className="h-6 w-6 text-primary" />
+                    </div>
                   </div>
                   <h4 className="text-xl font-semibold text-foreground mb-3">
                     {value.title}
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-sm">
                     {value.description}
                   </p>
                 </CardContent>

@@ -42,8 +42,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: 'contact@prathmammedlabs.com',
-      link: 'mailto:contact@prathmammedlabs.com'
+      details: 'contact@prathmamlabs.com',
+      link: 'mailto:contact@prathmamlabs.com'
     },
     {
       icon: MapPin,

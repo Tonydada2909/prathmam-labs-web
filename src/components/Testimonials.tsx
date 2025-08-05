@@ -8,8 +8,8 @@ const Testimonials = () => {
       nameEng: "Raj Kumar Sharma",
       location: "करौली",
       rating: 5,
-      text: "बहुत ही अच्छी सेवा मिली। रिपोर्ट समय पर मिल गई और स्टाफ बहुत सहयोगी था। डॉ. पूजा जी का व्यवहार बहुत अच्छा है।",
-      textEng: "Excellent service received. Got the report on time and staff was very cooperative. Dr. Pooja's behavior is very good."
+      text: "बहुत ही अच्छी सेवा मिली। रिपोर्ट समय पर मिल गई और स्टाफ बहुत सहयोगी था। सभी स्टाफ का व्यवहार बहुत अच्छा है।",
+      textEng: "Excellent service received. Got the report on time and staff was very cooperative. All this staff's behavior is very good."
     },
     {
       name: "सुनीता देवी",

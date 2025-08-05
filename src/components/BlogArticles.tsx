@@ -110,26 +110,6 @@ const BlogArticles = () => {
           </Button>
         </div>
 
-        {/* Guide for adding blog posts */}
-        <div className="mt-16 p-6 bg-blue-50 rounded-lg border border-blue-200">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">How to Add New Blog Posts (Admin Guide)</h3>
-          <div className="text-left space-y-3 text-gray-700">
-            <p><strong>To add blog posts in the future:</strong></p>
-            <ol className="list-decimal list-inside space-y-2">
-              <li>Access the Admin Dashboard from the navbar</li>
-              <li>Navigate to "Blog Management" section</li>
-              <li>Click "Add New Article"</li>
-              <li>Fill in title (both English and Hindi)</li>
-              <li>Add description (both languages)</li>
-              <li>Select appropriate icon and category</li>
-              <li>Set publication date and reading time</li>
-              <li>Preview and publish</li>
-            </ol>
-            <p className="text-sm text-blue-600 mt-4">
-              <strong>Note:</strong> This feature requires database setup for dynamic blog management. Contact your developer to implement the full blog management system.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
