@@ -13,6 +13,7 @@ import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import WelcomePopup from '@/components/WelcomePopup';
 import ReportDownloadGuide from '@/components/ReportDownloadGuide';
+import HomeBookingForm from '@/components/HomeBookingForm';
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
       <About />
       <TestDirectory />
       <HealthPackages />
+      <HomeBookingForm />
       <Downloads />
       <Testimonials />
       <BlogArticles />

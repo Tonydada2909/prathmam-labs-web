@@ -19,17 +19,17 @@ const About = () => {
     icon: Target,
     title: "Accuracy",
     description: "Precise results using state-of-the-art equipment and rigorous quality control.",
-    image: accuracyIcon
+    image: "/lovable-uploads/702a5f6f-d1f2-4f22-b050-7ae4eb86058a.png"
   }, {
     icon: Heart,
     title: "Care", 
     description: "Patient-centered approach with compassionate service and support.",
-    image: careIcon
+    image: "/lovable-uploads/b60ceaac-90f7-4d99-93d6-0e599a9c779e.png"
   }, {
     icon: Award,
     title: "Innovation",
     description: "Cutting-edge technology and adherence to international standards.",
-    image: innovationIcon
+    image: "/lovable-uploads/28ab8cb5-1fa3-48c5-81ed-accb50d1d5f3.png"
   }, {
     icon: Users,
     title: "Reliability",

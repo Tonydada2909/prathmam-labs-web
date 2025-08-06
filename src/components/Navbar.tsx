@@ -51,11 +51,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center gap-4 hover-lift">
+            <div className="flex-shrink-0 flex items-center gap-4 hover-lift ml-2">
               <img 
-                src="/lovable-uploads/287bfd2f-2f1f-43be-8391-995acac3fa03.png" 
+                src="/lovable-uploads/96dfbbe3-f175-424b-8ecf-50c995cedd7b.png" 
                 alt="Prathmam Medicare Labs Logo" 
-                className="h-12 w-12 rounded-lg shadow-sm"
+                className="h-12 w-12 rounded-full shadow-sm"
               />
               <div>
                 <h1 className="text-xl font-bold text-primary font-medium tracking-tight">
@@ -98,7 +98,7 @@ const Navbar = () => {
             {isAdmin && (
               <Link to="/admin">
                 <Button variant="outline" size="sm" className="bg-purple-50 border-purple-200 text-purple-700 hover:bg-purple-100 font-medium">
-                  Admin
+                  Admin Dashboard
                 </Button>
               </Link>
             )}
@@ -115,11 +115,6 @@ const Navbar = () => {
                 </Button>
               </Link>
             )}
-            
-            <Button className="bg-primary hover:bg-primary-glow text-primary-foreground font-medium shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
-              <ShoppingCart className="w-4 h-4 mr-2" />
-              Cart
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -163,7 +158,7 @@ const Navbar = () => {
               {isAdmin && (
                 <Link to="/admin" onClick={() => setIsOpen(false)}>
                   <Button variant="outline" size="sm" className="w-full bg-purple-50 border-purple-200 text-purple-700 font-medium">
-                    Admin
+                    Admin Dashboard
                   </Button>
                 </Link>
               )}
@@ -180,11 +175,6 @@ const Navbar = () => {
                   </Button>
                 </Link>
               )}
-              
-              <Button className="w-full bg-primary hover:bg-primary-glow text-primary-foreground font-medium shadow-md">
-                <ShoppingCart className="w-4 h-4 mr-2" />
-                Cart
-              </Button>
             </div>
           </div>
         </div>
