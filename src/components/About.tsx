@@ -115,14 +115,28 @@ const About = () => {
               <h4 className="text-xl font-semibold text-foreground mb-6">Our Certifications</h4>
               <div className="flex justify-center items-center gap-8">
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 mb-2">
-                    <span className="text-2xl font-bold text-red-600">ISO</span>
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 mb-2 overflow-hidden">
+                    <img
+                      src="/lovable-uploads/ea970d66-2bf5-4a5e-9484-194620f067e1.png"
+                      alt="ISO 9001:2015 certified company logo - Prathmam Medicare Labs"
+                      loading="lazy"
+                      className="w-full h-full object-contain p-2"
+                      width={80}
+                      height={80}
+                    />
                   </div>
                   <p className="text-sm text-muted-foreground">ISO Certified</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 mb-2">
-                    <span className="text-lg font-bold text-blue-600">IAF</span>
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 mb-2 overflow-hidden">
+                    <img
+                      src="/lovable-uploads/b15e1711-f267-48eb-958a-dc48c9196223.png"
+                      alt="International Accreditation Forum (IAF) accredited logo - Prathmam Medicare Labs"
+                      loading="lazy"
+                      className="w-full h-full object-contain p-2"
+                      width={80}
+                      height={80}
+                    />
                   </div>
                   <p className="text-sm text-muted-foreground">IAF Accredited</p>
                 </div>
